@@ -16,6 +16,7 @@ FROM docker.io/node:18-alpine@sha256:f4d6916c5625853e81994b5cb53ad3eb27e5fec9451
 RUN apk add --no-cache tini
 ENTRYPOINT ["tini"]
 
+ENV DOCKER_BUILDKIT=1
 USER node
 WORKDIR /usr/src/app
 

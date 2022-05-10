@@ -11,12 +11,13 @@
 
 ## Stage 0: Base image with only yarn and package.json
 FROM docker.io/node:18-alpine@sha256:f4d6916c5625853e81994b5cb53ad3eb27e5fec9451c579d298fee0c508fe621 as base
+ENV DOCKER_BUILDKIT=1
 # Add tini to handle signals
 # https://github.com/nodejs/docker-node/blob/main/docs/BestPractices.md#handling-kernel-signals
 RUN apk add --no-cache tini
 ENTRYPOINT ["tini"]
 
-ENV DOCKER_BUILDKIT=1
+
 USER node
 WORKDIR /usr/src/app
 

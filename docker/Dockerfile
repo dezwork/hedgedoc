@@ -13,6 +13,7 @@
 FROM docker.io/node:18-alpine@sha256:f4d6916c5625853e81994b5cb53ad3eb27e5fec9451c579d298fee0c508fe621 as base
 # Add tini to handle signals
 # https://github.com/nodejs/docker-node/blob/main/docs/BestPractices.md#handling-kernel-signals
+ARG DOCKER_BUILDKIT=1
 RUN apk add --no-cache tini
 ENTRYPOINT ["tini"]
 

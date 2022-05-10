@@ -24,6 +24,7 @@ COPY --chown=node .yarn .yarn
 COPY --chown=node package.json yarn.lock .yarnrc.yml ./
 
 
+
 ## Stage 1: Code with all dependencies
 FROM base as code-with-deps
 USER node
